@@ -14,13 +14,15 @@ class Point {
 	Point(int x, int y) { this.x = x; this.y = y; }
 }
 
-abstract class Shape {}
+abstract class Shape extends Object {}
 
 // Circle is a subclass of Shape
 // Shape is the superclass of Circle
 // Circle extends Shape
 // Shape generalizes Circle and Polygon
 // Circle is a subtype of Shape
+// Circle inherits from Shape
+// Shape inherits from Object
 
 class Circle extends Shape {
 	Point center;
@@ -77,6 +79,17 @@ class DrawingTest {
 			new Circle(new Point(10, 10), 5)
 		});
 		assertEquals("circle: 0 0 5 polygon: 1 0 0 1 1 1 circle: 10 10 5 ", drawing.toText());
+		
+		int x = 10;
+		//Object object = Integer.valueOf(10); // Wrapper class Integer
+		Object object = 10;
+		
+		assertTrue(object instanceof Integer);
+		Integer y = (Integer)object;
+		assertTrue(y.intValue() == 10);
+		
+		int z = (int)object;
+		// int z = ((Integer)object).intValue();
 	}
 
 }
